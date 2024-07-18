@@ -1,0 +1,52 @@
+[gd_scene load_steps=8 format=3 uid="uid://c8cg8p80v18hk"]
+
+[ext_resource type="Texture2D" uid="uid://dwq1igd4ub0u6" path="res://src/assets/Default_Cube.jpg" id="1_3eh5n"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qipb8"]
+atlas = ExtResource("1_3eh5n")
+region = Rect2(0, 0, 150, 150)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ksgyp"]
+atlas = ExtResource("1_3eh5n")
+region = Rect2(150, 0, 150, 150)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ukiv5"]
+atlas = ExtResource("1_3eh5n")
+region = Rect2(150, 150, 150, 150)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wmj8o"]
+atlas = ExtResource("1_3eh5n")
+region = Rect2(0, 150, 150, 150)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_4yec3"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qipb8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ksgyp")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ukiv5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wmj8o")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_0iniy"]
+
+[node name="Player" type="CharacterBody3D"]
+
+[node name="AnimatedSprite3D" type="AnimatedSprite3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.000174858, 0.809619, -0.00295332)
+modulate = Color(1, 0.156863, 1, 1)
+sprite_frames = SubResource("SpriteFrames_4yec3")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.945747, 0)
+shape = SubResource("CapsuleShape3D_0iniy")
